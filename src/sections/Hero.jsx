@@ -3,6 +3,7 @@ import { FiDownload, FiArrowRight } from "react-icons/fi";
 import Button from "../components/Button";
 import SocialIcons from "../components/SocialIcons";
 import { useTypewriter } from "../hooks/useTypewriter";
+import resume from "../assets/My_resume.pdf";
 
 const roles = ["Frontend Developer", "React Engineer", "UI Craftsman"];
 
@@ -74,7 +75,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="mt-9 flex flex-wrap items-center gap-4"
           >
-            <Button href="/resume.pdf" icon={FiDownload}>
+            <Button href={resume} icon={FiDownload}>
               Download CV
             </Button>
             <Button
@@ -108,22 +109,40 @@ export default function Hero() {
               <span className="h-2.5 w-2.5 rounded-full bg-[#F87171]/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-[#FBBF24]/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-[#34D399]/70" />
-              <span className="ml-3 font-mono text-[11px] text-white/35">developer.jsx</span>
+              <span className="ml-3 font-mono text-[11px] text-white/35">
+                developer.jsx
+              </span>
             </div>
             <div className="p-6 font-mono text-[13px] leading-7 text-white/70 sm:text-sm">
-              <p><span className="text-amber-signal">const</span> developer = {"{"}</p>
-              <p className="pl-4">name: <span className="text-emerald-300">'Abdurashid Rashidov'</span>,</p>
-              <p className="pl-4">role: <span className="text-emerald-300">'Frontend Developer'</span>,</p>
-              <p className="pl-4">
-                stack: [<span className="text-emerald-300">'React'</span>, <span className="text-emerald-300">'Vite'</span>, <span className="text-emerald-300">'Tailwind'</span>],
+              <p>
+                <span className="text-amber-signal">const</span> developer ={" "}
+                {"{"}
               </p>
-              <p className="pl-4">focus: <span className="text-emerald-300">'clean, fast UI'</span>,</p>
+              <p className="pl-4">
+                name:{" "}
+                <span className="text-emerald-300">'Abdurashid Rashidov'</span>,
+              </p>
+              <p className="pl-4">
+                role:{" "}
+                <span className="text-emerald-300">'Frontend Developer'</span>,
+              </p>
+              <p className="pl-4">
+                stack: [<span className="text-emerald-300">'React'</span>,{" "}
+                <span className="text-emerald-300">'Vite'</span>,{" "}
+                <span className="text-emerald-300">'Tailwind'</span>],
+              </p>
+              <p className="pl-4">
+                focus:{" "}
+                <span className="text-emerald-300">'clean, fast UI'</span>,
+              </p>
               <p>{"};"}</p>
             </div>
           </div>
 
           <div className="absolute -bottom-6 -left-6 flex items-center gap-3 rounded-2xl border border-white/8 bg-ink/90 px-5 py-4 shadow-panel">
-            <span className="font-display text-2xl font-bold text-amber-signal">3+</span>
+            <span className="font-display text-2xl font-bold text-amber-signal">
+              3+
+            </span>
             <span className="max-w-[7rem] font-body text-xs leading-tight text-white/55">
               Years building interfaces
             </span>
