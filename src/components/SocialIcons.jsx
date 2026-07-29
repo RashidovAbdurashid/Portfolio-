@@ -2,10 +2,30 @@ import { motion } from "framer-motion";
 import { FiGithub, FiSend, FiMail, FiLinkedin } from "react-icons/fi";
 
 const socials = [
-  { id: "github", icon: FiGithub, href: "https://github.com/RashidovAbdurashid", label: "GitHub" },
-  { id: "telegram", icon: FiSend, href: "https://t.me/RashidovAbdurashid", label: "Telegram" },
-  { id: "email", icon: FiMail, href: "mailto:rashidov.dev@gmail.com", label: "Email" },
-  { id: "linkedin", icon: FiLinkedin, href: "https://linkedin.com/in/RashidovAbdurashid", label: "LinkedIn" },
+  {
+    id: "github",
+    icon: FiGithub,
+    href: "https://github.com/RashidovAbdurashid",
+    label: "GitHub",
+  },
+  {
+    id: "telegram",
+    icon: FiSend,
+    href: "https://t.me/first_7_01",
+    label: "Telegram",
+  },
+  {
+    id: "email",
+    icon: FiMail,
+    href: "mailto:rashidov.dev@gmail.com",
+    label: "Email",
+  },
+  {
+    id: "linkedin",
+    icon: FiLinkedin,
+    href: "https://linkedin.com/in/RashidovAbdurashid",
+    label: "LinkedIn",
+  },
 ];
 
 export default function SocialIcons({ className = "" }) {
