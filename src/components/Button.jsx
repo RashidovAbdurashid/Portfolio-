@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 
+
 const base =
   "inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 font-body text-sm font-semibold tracking-wide transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-signal";
 

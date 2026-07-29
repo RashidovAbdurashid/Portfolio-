@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { FiDownload } from "react-icons/fi";
 import SectionHeading from "../components/SectionHeading";
 import Button from "../components/Button";
+import resume from "../assets/My_resume.pdf";
 import { timeline } from "../data/timeline";
 
 export default function About() {
@@ -36,7 +37,7 @@ export default function About() {
             </p>
 
             <div className="mt-9">
-              <Button href="/resume.pdf" icon={FiDownload}>
+              <Button href={resume} icon={FiDownload}>
                 Download CV
               </Button>
             </div>

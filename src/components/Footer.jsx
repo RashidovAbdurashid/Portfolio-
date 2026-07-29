@@ -20,7 +20,7 @@ export default function Footer() {
             <FiGithub aria-hidden="true" /> GitHub
           </a>
           <a
-            href="https://t.me/RashidovAbdurashid"
+            href="https://t.me/first_7_01"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 transition-colors duration-300 hover:text-amber-signal"
