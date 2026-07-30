@@ -7,6 +7,7 @@ import { useLanguage } from "../i18n/LanguageContext";
 
 export default function MobileMenu({ open, onClose, active, onNavigate }) {
   const { t } = useLanguage();
+
   return (
     <AnimatePresence>
       {open && (
@@ -20,13 +21,17 @@ export default function MobileMenu({ open, onClose, active, onNavigate }) {
             <span className="font-display text-lg font-bold text-paper">
               A<span className="text-amber-signal">.</span>Rashidov
             </span>
-            <button
-              onClick={onClose}
-              aria-label="Close menu"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-paper"
-            >
-              <FiX aria-hidden="true" />
-            </button>
+
+            <div className="flex items-center gap-3">
+              <LanguageSwitcher />
+              <button
+                onClick={onClose}
+                aria-label="Close menu"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-paper"
+              >
+                <FiX aria-hidden="true" />
+              </button>
+            </div>
           </div>
 
           <nav
@@ -45,23 +50,13 @@ export default function MobileMenu({ open, onClose, active, onNavigate }) {
                   active === link.id ? "text-amber-signal" : "text-paper/80"
                 }`}
               >
-                {link.label} → {t(`nav.${link.id}`)}
+                {t(`nav.${link.id}`)}
               </motion.a>
             ))}
           </nav>
 
           <div className="absolute bottom-10 left-8">
             <SocialIcons />
-          </div>
-          <div className="flex items-center gap-3">
-            <LanguageSwitcher />
-            <button
-              onClick={onClose}
-              aria-label="Close menu"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-paper"
-            >
-              <FiX aria-hidden="true" />
-            </button>
           </div>
         </motion.div>
       )}
