@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiArrowUp } from "react-icons/fi";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
-
+  const { t } = useLanguage();
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 480);
     window.addEventListener("scroll", onScroll, { passive: true });

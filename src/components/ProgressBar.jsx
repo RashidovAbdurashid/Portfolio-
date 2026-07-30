@@ -51,7 +51,9 @@ export default function ProgressBar({ name, icon, level, delay = 0 }) {
           <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-lg text-white/70 transition-colors duration-300 group-hover:bg-amber-signal/15 group-hover:text-amber-signal">
             {Icon && <Icon aria-hidden="true" />}
           </span>
-          <span className="font-body text-sm font-medium text-paper">{name}</span>
+          <span className="font-body text-sm font-medium text-paper">
+            {name}
+          </span>
         </div>
         <span className="font-mono text-xs text-white/40">{level}%</span>
       </div>

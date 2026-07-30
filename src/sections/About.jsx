@@ -3,13 +3,20 @@ import { FiDownload } from "react-icons/fi";
 import SectionHeading from "../components/SectionHeading";
 import Button from "../components/Button";
 import resume from "../assets/My_resume.pdf";
-import { timeline } from "../data/timeline";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function About() {
+  const { t } = useLanguage();
+  const timeline = t("about.timeline");
+
   return (
     <section id="about" className="relative py-28 md:py-36">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeading index="01" eyebrow="About Me" title="A developer who cares about the details" />
+        <SectionHeading
+          index="01"
+          eyebrow={t("about.eyebrow")}
+          title={t("about.title")}
+        />
 
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[0.9fr_1.1fr]">
           <motion.div
@@ -18,27 +25,17 @@ export default function About() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-white/60 leading-relaxed">
-              I'm Abdurashid Rashidov, a frontend developer focused on building
-              interfaces that feel fast, look deliberate, and hold up on every
-              screen size. I care about the gap between a design file and a
-              real, working product — that's the part I enjoy solving.
+            <p className="text-white/60 leading-relaxed">{t("about.p1")}</p>
+            <p className="mt-5 text-white/60 leading-relaxed">
+              {t("about.p2")}
             </p>
             <p className="mt-5 text-white/60 leading-relaxed">
-              My day-to-day toolkit is React, Vite and Tailwind CSS, backed by
-              a working knowledge of Node.js and databases so I can speak the
-              same language as the backend of a project, not just the surface
-              of it.
-            </p>
-            <p className="mt-5 text-white/60 leading-relaxed">
-              Outside of shipped projects, I spend time refining components,
-              reading through other developers' code, and looking for the
-              smallest way to make an interface feel one step more polished.
+              {t("about.p3")}
             </p>
 
             <div className="mt-9">
               <Button href={resume} icon={FiDownload}>
-                Download CV
+                {t("about.cv")}
               </Button>
             </div>
           </motion.div>
@@ -64,12 +61,16 @@ export default function About() {
                   >
                     <span
                       className={`h-1.5 w-1.5 rounded-full ${
-                        item.type === "education" ? "bg-slate-panel" : "bg-amber-signal"
+                        item.type === "education"
+                          ? "bg-slate-panel"
+                          : "bg-amber-signal"
                       }`}
                     />
                   </span>
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="font-mono text-xs text-amber-signal/80">{item.year}</span>
+                    <span className="font-mono text-xs text-amber-signal/80">
+                      {item.year}
+                    </span>
                     <span className="rounded-full border border-white/10 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wide text-white/40">
                       {item.type}
                     </span>

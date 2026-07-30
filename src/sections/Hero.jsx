@@ -3,11 +3,11 @@ import { FiDownload, FiArrowRight } from "react-icons/fi";
 import Button from "../components/Button";
 import SocialIcons from "../components/SocialIcons";
 import { useTypewriter } from "../hooks/useTypewriter";
-import resume from "../assets/My_resume.pdf";
-
-const roles = ["Frontend Developer", "React Engineer", "UI Craftsman"];
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
+  const roles = t("hero.roles");
   const typed = useTypewriter(roles);
 
   const scrollTo = (e, id) => {
@@ -36,7 +36,7 @@ export default function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-signal opacity-60" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-signal" />
             </span>
-            Available for new opportunities
+            {t("hero.available")}
           </motion.p>
 
           <motion.h1
@@ -45,7 +45,8 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="mt-6 font-display text-5xl font-bold leading-[1.05] text-paper sm:text-6xl lg:text-7xl"
           >
-            Hi, I'm <span className="text-gradient">Abdurashid</span>
+            {t("hero.greeting")}{" "}
+            <span className="text-gradient">Abdurashid</span>
           </motion.h1>
 
           <motion.div
@@ -64,9 +65,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="mt-6 max-w-md text-white/55"
           >
-            I build fast, accessible interfaces with React and modern tooling —
-            turning design intent into production-grade code, component by
-            component.
+            {t("hero.description")}
           </motion.p>
 
           <motion.div
@@ -75,8 +74,8 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="mt-9 flex flex-wrap items-center gap-4"
           >
-            <Button href={resume} icon={FiDownload}>
-              Download CV
+            <Button href="/resume.pdf" icon={FiDownload}>
+              {t("hero.cv")}
             </Button>
             <Button
               href="#contact"
@@ -84,7 +83,7 @@ export default function Hero() {
               icon={FiArrowRight}
               onClick={(e) => scrollTo(e, "contact")}
             >
-              Contact Me
+              {t("hero.contact")}
             </Button>
           </motion.div>
 
@@ -144,7 +143,7 @@ export default function Hero() {
               3+
             </span>
             <span className="max-w-[7rem] font-body text-xs leading-tight text-white/55">
-              Years building interfaces
+              {t("hero.years")}
             </span>
           </div>
         </motion.div>

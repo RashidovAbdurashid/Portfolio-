@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import SectionHeading from "../components/SectionHeading";
 import ProgressBar from "../components/ProgressBar";
 import { skillGroups } from "../data/skills";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Skills() {
   const [activeTab, setActiveTab] = useState(skillGroups[0].id);

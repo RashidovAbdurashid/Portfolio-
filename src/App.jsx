@@ -7,6 +7,8 @@ import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
 import Services from "./sections/Services";
 import Contact from "./sections/Contact";
+; 
+
 
 export default function App() {
   return (

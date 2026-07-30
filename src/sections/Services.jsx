@@ -1,6 +1,7 @@
 import SectionHeading from "../components/SectionHeading";
 import ServiceCard from "../components/ServiceCard";
 import { services } from "../data/services";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Services() {
   return (

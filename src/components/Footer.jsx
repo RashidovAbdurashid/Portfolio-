@@ -1,13 +1,14 @@
 import { FiGithub, FiSend, FiMail } from "react-icons/fi";
-
+import { useLanguage } from "../i18n/LanguageContext";
 export default function Footer() {
+  const { t } = useLanguage();
   const year = new Date().getFullYear();
 
   return (
     <footer className="border-t border-white/8 bg-ink/60">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 py-10 sm:flex-row sm:justify-between">
         <p className="font-mono text-xs text-white/40">
-          © {year} Abdurashid Rashidov. All rights reserved.
+          © {year} Abdurashid Rashidov. {t("footer.rights")}
         </p>
 
         <div className="flex items-center gap-6 font-body text-sm text-white/55">

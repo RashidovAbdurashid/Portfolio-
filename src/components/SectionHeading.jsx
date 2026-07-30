@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function SectionHeading({ index, eyebrow, title, description, align = "left" }) {
+  const { t } = useLanguage();
   return (
     <div className={`mb-14 md:mb-20 ${align === "center" ? "text-center mx-auto max-w-2xl" : ""}`}>
       <motion.div

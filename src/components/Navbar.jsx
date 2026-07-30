@@ -4,11 +4,14 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { navLinks } from "../data/nav";
 import { useActiveSection } from "../hooks/useActiveSection";
 import MobileMenu from "./MobileMenu";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const active = useActiveSection(navLinks.map((l) => l.id));
+  const { t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -42,9 +45,15 @@ export default function Navbar() {
             A<span className="text-amber-signal">.</span>Rashidov
           </a>
 
-          <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+          <nav
+            aria-label="Primary"
+            className="hidden items-center gap-1 md:flex"
+          >
             {navLinks.map((link) => (
               <a
+                key={link.id}
+                href={`#${link.id}`}
+                onClick={(e) => handleNavClick(e, link.id)}
                 key={link.id}
                 href={`#${link.id}`}
                 onClick={(e) => handleNavClick(e, link.id)}
@@ -57,7 +66,7 @@ export default function Navbar() {
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
-                <span className="relative">{link.label}</span>
+                <span className="relative">{t(`nav.${link.id}`)}</span>
                 {active === link.id && (
                   <span className="absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-amber-signal" />
                 )}
@@ -70,7 +79,7 @@ export default function Navbar() {
             onClick={(e) => handleNavClick(e, "contact")}
             className="hidden rounded-full bg-amber-signal px-5 py-2.5 font-body text-sm font-semibold text-void transition-transform duration-300 hover:scale-105 md:inline-flex"
           >
-            Let's Talk
+            {t("nav.talk")}
           </a>
 
           <button
@@ -80,6 +89,16 @@ export default function Navbar() {
           >
             <FiMenu aria-hidden="true" />
           </button>
+          <div className="hidden items-center gap-3 md:flex">
+            <LanguageSwitcher />
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, "contact")}
+              className="rounded-full bg-amber-signal px-5 py-2.5 font-body text-sm font-semibold text-void transition-transform duration-300 hover:scale-105"
+            >
+              {t("nav.talk")}
+            </a>
+          </div>
         </div>
       </header>
 

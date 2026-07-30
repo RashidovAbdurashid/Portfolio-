@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FiGithub, FiArrowUpRight, FiUser, FiMail, FiMessageSquare } from "react-icons/fi";
 import SectionHeading from "../components/SectionHeading";
 import SocialIcons from "../components/SocialIcons";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const fields = [
   { id: "name", label: "Name", type: "text", icon: FiUser, placeholder: "Your name" },

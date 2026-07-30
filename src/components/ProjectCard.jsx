@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 import { FiArrowUpRight, FiGithub } from "react-icons/fi";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function ProjectCard({ project, index }) {
-  const ring = project.accent === "amber" ? "group-hover:border-amber-signal/50" : "group-hover:border-slate-panel";
-
+  const ring =
+    project.accent === "amber"
+      ? "group-hover:border-amber-signal/50"
+      : "group-hover:border-slate-panel";
+  const { t } = useLanguage();
   return (
     <motion.article
       initial={{ opacity: 0, y: 40 }}
@@ -48,11 +52,17 @@ export default function ProjectCard({ project, index }) {
       <div className="flex flex-1 flex-col p-7">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <span className="font-mono text-xs text-amber-signal/70">{project.id}</span>
-            <h3 className="mt-1 font-display text-xl font-semibold text-paper">{project.name}</h3>
+            <span className="font-mono text-xs text-amber-signal/70">
+              {project.id}
+            </span>
+            <h3 className="mt-1 font-display text-xl font-semibold text-paper">
+              {project.name}
+            </h3>
           </div>
         </div>
-        <p className="mt-3 flex-1 text-sm leading-relaxed text-white/55">{project.description}</p>
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-white/55">
+          {project.description}
+        </p>
 
         <div className="mt-5 flex flex-wrap gap-2">
           {project.tech.map((tech) => (

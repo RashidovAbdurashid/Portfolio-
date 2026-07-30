@@ -2,8 +2,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FiX } from "react-icons/fi";
 import { navLinks } from "../data/nav";
 import SocialIcons from "./SocialIcons";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function MobileMenu({ open, onClose, active, onNavigate }) {
+  const { t } = useLanguage();
   return (
     <AnimatePresence>
       {open && (
@@ -26,7 +29,10 @@ export default function MobileMenu({ open, onClose, active, onNavigate }) {
             </button>
           </div>
 
-          <nav className="mt-10 flex flex-col items-start gap-2 px-8" aria-label="Mobile primary">
+          <nav
+            className="mt-10 flex flex-col items-start gap-2 px-8"
+            aria-label="Mobile primary"
+          >
             {navLinks.map((link, i) => (
               <motion.a
                 key={link.id}
@@ -39,13 +45,23 @@ export default function MobileMenu({ open, onClose, active, onNavigate }) {
                   active === link.id ? "text-amber-signal" : "text-paper/80"
                 }`}
               >
-                {link.label}
+                {link.label} → {t(`nav.${link.id}`)}
               </motion.a>
             ))}
           </nav>
 
           <div className="absolute bottom-10 left-8">
             <SocialIcons />
+          </div>
+          <div className="flex items-center gap-3">
+            <LanguageSwitcher />
+            <button
+              onClick={onClose}
+              aria-label="Close menu"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-paper"
+            >
+              <FiX aria-hidden="true" />
+            </button>
           </div>
         </motion.div>
       )}

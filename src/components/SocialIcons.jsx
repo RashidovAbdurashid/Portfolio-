@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FiGithub, FiSend, FiMail, FiLinkedin } from "react-icons/fi";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const socials = [
   {
@@ -29,6 +30,8 @@ const socials = [
 ];
 
 export default function SocialIcons({ className = "" }) {
+  const { t } = useLanguage();
+
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       {socials.map(({ id, icon: Icon, href, label }) => (
