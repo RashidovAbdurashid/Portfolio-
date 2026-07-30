@@ -74,13 +74,7 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <a
-            href="#contact"
-            onClick={(e) => handleNavClick(e, "contact")}
-            className="hidden rounded-full bg-amber-signal px-5 py-2.5 font-body text-sm font-semibold text-void transition-transform duration-300 hover:scale-105 md:inline-flex"
-          >
-            {t("nav.talk")}
-          </a>
+
 
           <button
             onClick={() => setMenuOpen(true)}
